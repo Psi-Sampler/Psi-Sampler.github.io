@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://psi-sampler.github.io/',
+  site: 'https://stochsync.github.io/',
   vite: {
       server: {
           watch: {
