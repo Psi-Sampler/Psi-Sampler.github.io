@@ -103,11 +103,11 @@ We visualize how different initialization strategies affect the performance of S
 
 (A) shows raw samples from the prior distribution (blue), and the generation results from the pre-trained score-based generative model without reward guidance (red).
 
-(B) shows the target distribution (red), defined by a reward that selects specific modes.
+(B) shows the target distribution (red) defined by a reward that selects specific modes, and the posterior distribution (blue).
 
-Each panel overlays:
+Each panel (C)-(E) overlays:
 
-🔴 Red dots: clean data samples obtained through SMC, where the proposal kernel is based on the denoising process of pre-trained score-based generative model.
+🔴 Red dots: clean data samples obtained through SMC with inference-time reward alignment, where the proposal kernel is based on the denoising process of pre-trained score-based generative model.
 
 🔵 Blue dots: initial samples used to start SMC sampling.
 
