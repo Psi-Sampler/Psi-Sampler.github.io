@@ -114,13 +114,14 @@ Each panel overlays:
 While standard SMC (C) fails to cover all modes, and Metropolis-Adjusted Langevin
  Algorithm (MALA) + SMC (D) still leaves some gaps, our proposed <LaTeX inline formula="\Psi" />-Sampler (E) achieves the closest match to the target. This highlights the importance of high-quality initial particles in reward-guided inference.
 
-
+<div class="mt-7"></div>
 # Qualitative Results
+<div class="mt-2"></div>
 We provide qualitative results comparing various baselines with our <LaTeX inline formula="\Psi" />-Sampler. 
 We conducted experiments on three applications: **Layout-to-Image Generation**, **Quantity-Aware Image Generation**, and **Aesthetic-Preference Image Generation**.
 
-**Single-Particle:** *FreeDoM* is a non-SMC method that relies on a single particle.  
-**SMC with Prior Initialization:** *TDS* serves as the SMC baseline, while *DAS* extends it with a tempering strategy.  
+**Single-Particle:** *FreeDoM* [[1](#ref-free)] is a non-SMC method that relies on a single particle.  
+**SMC with Prior Initialization:** *TDS* [[2](#ref-wu)] serves as the SMC baseline, while *DAS* [[3](#ref-kim)] extends it with a tempering strategy.  
 **SMC with Posterior Initialization:** We compare four posterior-based initialization strategies: — *Top-K-of-N*, *Unadjusted Langevin Algorithm (ULA)*, *Metropolis-Adjusted Langevin
  Algorithm (MALA)*, and our proposed <LaTeX inline formula="\Psi" />-Sampler.  
 
@@ -135,9 +136,25 @@ For all applications, <LaTeX inline formula="\Psi" />-Sampler demonstrates the h
 ## Aesthetic-Preference Image Generation
 <Image src={aesthetic} alt="" />
 
+## References
+
+<div class="text-sm leading-relaxed space-y-2">
+  <div id="ref-free">
+    [1] Jiwen Yu et al. [*FreeDoM: Training-Free Energy-Guided Conditional Diffusion Model*](https://arxiv.org/abs/2303.09833), ICCV 2023.
+  </div>
+
+  <div id="ref-wu">
+    [2] Luhuan Wu et al. [*Practical and Asymptotically Exact Conditional Sampling in Diffusion Models*](https://arxiv.org/abs/2306.17775), NeurIPS 2023.
+  </div>
+  
+  <div id="ref-kim">
+    [3] Sunwoo Kim et al. [*Test-time Alignment of Diffusion Models without Reward Over-optimization*](https://arxiv.org/abs/2501.05803), ICLR 2025.
+  </div>
+</div>
+
 ## Citation
 
-If you find our work helpful, please cite the following paper.
+If you find our work helpful, please cite our paper.
 
 ```bibtex
 @misc{yoon2025psisamplerinitialparticlesampling,
