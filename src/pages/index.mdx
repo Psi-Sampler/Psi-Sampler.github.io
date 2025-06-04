@@ -28,6 +28,10 @@ import CodeBlock from "../components/CodeBlock.astro";
 export const components = {pre: CodeBlock}
 
 import teaser from "../assets/teaser.png";
+import toy from "../assets/toy.png";
+import layout from "../assets/layout.png";
+import counting from "../assets/counting.png";
+import aesthetic from "../assets/aesthetic.png";
 
 <Header
   title={frontmatter.title}
@@ -80,7 +84,7 @@ import teaser from "../assets/teaser.png";
 />
 
 <Figure caption="We propose Ψ-Sampler, an SMC-based framework that improves inference-time reward alignment in score-based generative models via efficient posterior initialization using the pCNL algorithm.">
-  <Image src={teaser} alt=".." />
+  <Image src={teaser} alt="" />
 </Figure>
 ---
 
@@ -91,6 +95,45 @@ We introduce <LaTeX inline formula="\Psi" />-Sampler, an SMC-based framework inc
 
 ---
 
+## Toy Experiment: Comparing SMC Initialization Methods
+
+<Image src={toy} alt="" />
+
+We visualize how different initialization strategies affect the performance of Sequential Monte Carlo (SMC) in a synthetic 2D task.
+
+(A) shows raw samples from the prior distribution (blue), without reward guidance.
+
+(B) shows the target distribution (red), defined by a reward that selects specific modes from the ground-truth.
+
+Each panel overlays:
+
+🔴 Red dots: clean data samples from the desired target distribution.
+
+🔵 Blue dots: initial samples used to start SMC inference.
+
+While standard SMC (C) fails to cover all modes, and Metropolis-Adjusted Langevin
+ Algorithm (MALA) + SMC (D) still leaves some gaps, our proposed <LaTeX inline formula="\Psi" />-Sampler (E) achieves the closest match to the target. This highlights the importance of high-quality initial particles in reward-guided inference.
+
+
+# Qualitative Results
+We provide qualitative results comparing various baselines with our <LaTeX inline formula="\Psi" />-Sampler. 
+We conducted experiments on three applications: **Layout-to-Image Generation**, **Quantity-Aware Image Generation**, and **Aesthetic-Preference Image Generation**.
+
+**Single-Particle:** *FreeDoM* is a non-SMC method that relies on a single particle.  
+**SMC with Prior Initialization:** *TDS* serves as the SMC baseline, while *DAS* extends it with a tempering strategy.  
+**SMC with Posterior Initialization:** We compare four posterior-based initialization strategies: — *Top-K-of-N*, *Unadjusted Langevin Algorithm (ULA)*, *Metropolis-Adjusted Langevin
+ Algorithm (MALA)*, and our proposed <LaTeX inline formula="\Psi" />-Sampler.  
+
+For all applications, <LaTeX inline formula="\Psi" />-Sampler demonstrates the highest compliance with the given conditions. Additional qualitative results are provided in the main paper.
+
+## Layout-to-Image generation
+<Image src={layout} alt="" />
+
+## Quantity-Aware Image Generation
+<Image src={counting} alt="" />
+
+## Aesthetic-Preference Image Generation
+<Image src={aesthetic} alt="" />
 
 ## Citation
 
