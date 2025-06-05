@@ -128,12 +128,25 @@ We conducted experiments on three applications: **Layout-to-Image Generation**, 
 For all applications, <LaTeX inline formula="\Psi" />-Sampler demonstrates the highest compliance with the given conditions. Additional qualitative results are provided in the main paper.
 
 ## Layout-to-Image Generation
+Each example visualizes the input layout with color-coded phrases and their corresponding bounding boxes for clarity.
+<LaTeX inline formula="\Psi" />-Sampler consistently respects both the spatial
+constraints and object presence specified in the layout.
+
 <Image src={layout} alt="" />
 
 ## Quantity-Aware Image Generation
+For each image, we overlay the predicted object centroids from a counting model for easier comparison.
+Additionally, we display the predicted count below each image, along with the absolute
+difference from the target quantity in the format (<LaTeX inline formula="\Delta \cdot" />).
+<LaTeX inline formula="\Psi" />-Sampler consistently consistently produces the most accurate results in the quantity-aware image generation task, successfully matching the specified object counts more closely than competing methods.
+
 <Image src={counting} alt="" />
 
 ## Aesthetic-Preference Image Generation
+For each prompt (e.g., “Horse”, “Bird”), we show the predicted
+aesthetic score [[4](#ref-aes)] below each image. While all methods generate visually plausible outputs, <LaTeX inline formula="\Psi" />-Sampler consistently produces images with higher aesthetic appeal, as reflected in both qualitative
+impressions and the predicted aesthetic scores.
+
 <Image src={aesthetic} alt="" />
 
 ## References
@@ -149,6 +162,10 @@ For all applications, <LaTeX inline formula="\Psi" />-Sampler demonstrates the h
   
   <div id="ref-kim">
     [3] Sunwoo Kim et al. [*Test-time Alignment of Diffusion Models without Reward Over-optimization*](https://arxiv.org/abs/2501.05803), ICLR 2025.
+  </div>
+
+  <div id="ref-aes">
+    [4] Christoph Schuhmann. [*Laion aesthetic predictor*](https://laion.ai/blog/laion-aesthetics/)
   </div>
 </div>
 
